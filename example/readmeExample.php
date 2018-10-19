@@ -11,7 +11,7 @@ try {
         echo 'Podmiot o podanym identyfikatorze podatkowy NIP jest zarejestrowany jako podatnik VAT czynny';
     } else if ($status === \VatApi\TaxStatusInterface::TAXPAYER_NOT_ACTIVE) {
         echo 'Podmiot o podanym  identyfikatorze podatkowym NIP nie jest zarejestrowany jako podatnik VAT';
-    } else {
+    } else if ($status === \VatApi\TaxStatusInterface::TAXPAYER_FREE) {
         echo 'Podmiot o podanym identyfikatorze podatkowym NIP jest zarejestrowany jako podatnik VAT zwolniony';
     }
 } catch (\VatApi\Exception\InvalidNipNumberException $e) {

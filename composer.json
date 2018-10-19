@@ -3,7 +3,7 @@
     "description": "Polish VAT API Library for PHP",
     "type" : "library",
     "license": "LGPL-2.1-or-later",
-    "keywords":["VAT","api", "soap", "library", "mf", "e-podatki"],
+    "keywords":["VAT", "api", "soap", "library", "mf", "e-podatki", "NIP", "tax"],
     "authors": [
         {
             "name": "Janusz Żukowicz",
