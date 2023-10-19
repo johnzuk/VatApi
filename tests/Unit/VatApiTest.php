@@ -1,4 +1,5 @@
 <?php
+
 namespace VatApi;
 
 use PHPUnit\Framework\TestCase;
@@ -16,7 +17,7 @@ class VatApiTest extends TestCase
             ->expects($this->once())
             ->method('__soapCall')
             ->with(VatApiConstantInterface::CHECK_NIP_FUNCTION, [
-                VatApiConstantInterface::NIP_CHECK_PARAM => '1231231223'
+                VatApiConstantInterface::NIP_CHECK_PARAM => '1231231223',
             ])
             ->willReturn($response);
 

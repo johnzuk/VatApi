@@ -5,3 +5,5 @@ phpunit.xml
 .php_cs.cache
 .php_cs
 composer.lock
+.php-cs-fixer.cache
+.phpunit.result.cache

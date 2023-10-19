@@ -1,7 +1,9 @@
 <?php
+
 namespace VatApi\Integration;
 
 use PHPUnit\Framework\TestCase;
+use VatApi\Exception\InvalidNipNumberException;
 use VatApi\TaxStatusInterface;
 use VatApi\VatApi;
 
@@ -15,11 +17,10 @@ class VatApiTest extends TestCase
         $this->assertEquals(TaxStatusInterface::TAXPAYER_ACTIVE, $response);
     }
 
-    /**
-     * @expectedException VatApi\Exception\InvalidNipNumberException
-     */
-    public function testGetNipStatuwWithInvalidNip()
+    public function testGetNipStatusWithInvalidNip()
     {
+        $this->expectException(InvalidNipNumberException::class);
+
         $api = new VatApi();
         $response = $api->getNipStatus('1231231221');
 
