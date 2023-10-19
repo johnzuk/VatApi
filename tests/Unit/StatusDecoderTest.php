@@ -1,11 +1,13 @@
 <?php
+
 namespace VatApi;
 
 use PHPUnit\Framework\TestCase;
+use VatApi\Exception\InvalidCodeValueException;
+use VatApi\Exception\InvalidNipNumberException;
 
 class StatusDecoderTest extends TestCase
 {
-
     public function testDecodeWithWalidResponse()
     {
         $response = new Type\Response\VatStatusResponse();
@@ -15,11 +17,10 @@ class StatusDecoderTest extends TestCase
         $this->assertEquals(TaxStatusInterface::TAXPAYER_ACTIVE, $status);
     }
 
-    /**
-     * @expectedException VatApi\Exception\InvalidNipNumberException
-     */
     public function testDecodeWithInvalidNumber()
     {
+        $this->expectException(InvalidNipNumberException::class);
+
         $response = new Type\Response\VatStatusResponse();
         $response->setKod('I');
         $response->setKomunikat('Niepoprawny Numer Identyfikacji Podatkowej');
@@ -27,11 +28,10 @@ class StatusDecoderTest extends TestCase
         $status = StatusDecoder::decode($response);
     }
 
-    /**
-     * @expectedException VatApi\Exception\InvalidCodeValueException
-     */
     public function testDecodeWithInvalidCode()
     {
+        $this->expectException(InvalidCodeValueException::class);
+
         $response = new Type\Response\VatStatusResponse();
         $response->setKod('X');
 

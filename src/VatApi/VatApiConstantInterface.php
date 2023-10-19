@@ -1,4 +1,5 @@
 <?php
+
 namespace VatApi;
 
 use VatApi\Type\Response\VatStatusResponse;
@@ -15,7 +16,7 @@ interface VatApiConstantInterface
 
     public const DEFAULT_API_OPTIONS = [
         'classmap' => [
-            VatApiConstantInterface::VAT_RESPONSE => VatStatusResponse::class
-        ]
+            VatApiConstantInterface::VAT_RESPONSE => VatStatusResponse::class,
+        ],
     ];
 }
